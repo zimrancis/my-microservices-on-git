@@ -1,0 +1,36 @@
+INSERT INTO oauth_client_details (client_id, client_secret, web_server_redirect_uri, scope, access_token_validity, refresh_token_validity, resource_ids, authorized_grant_types, additional_information) VALUES ('mobile', '{bcrypt}$2y$12$m/t4XTYHyQCFBFpcv/pgj.Iz4K5EA5eFwayLVthDX5XCTd93czuIe', 'http://localhost:8080/code', 'READ,WRITE', '3600', '10000', 'inventory,payment', 'authorization_code,password,refresh_token,implicit', '{}');
+
+ INSERT INTO permission (NAME) VALUES
+ ('create_profile'),
+ ('read_profile'),
+ ('update_profile'),
+ ('delete_profile');
+
+/*
+passwords:
+zobair123
+o...
+i...
+*/
+
+
+ INSERT INTO role (NAME) VALUES
+		('ROLE_admin'),('ROLE_editor'),('ROLE_operator');
+
+ INSERT INTO permission_role (PERMISSION_ID, ROLE_ID) VALUES
+     (1,1), /*create-> admin */
+     (2,1), /* read admin */
+     (3,1), /* update admin */
+     (4,1), /* delete admin */
+     (2,2),  /* read editor */
+     (3,2),  /* update editor */
+     (2,3);  /* read operator */
+insert into user (id, username,password, email, enabled, accountNonExpired, credentialsNonExpired, accountNonLocked) VALUES ('1', 'zobair','{bcrypt}$2y$12$MTPeODg9LAf9BdOYwP7Gr.IlSFzfN9il./hEUbLlBYsuNgM.8CuOe', 'z@zimrancis.com', '1', '1', '1', '1');
+ insert into  user (id, username,password, email, enabled, accountNonExpired, credentialsNonExpired, accountNonLocked) VALUES ('2', 'omar', '{bcrypt}$2y$12$NL.wiTpi/U9Y1nbNi/dI3OH3VVRVnaARfTjgMqXlBeYON46JJ2KcS','o@omarsufian.com', '1', '1', '1', '1');
+ insert into  user (id, username,password, email, enabled, accountNonExpired, credentialsNonExpired, accountNonLocked) VALUES ('3', 'imtiaz', '{bcrypt}$2y$12$xtmK1nL2LqjhkJC/er9DhuRrYx.xDsHoIF8/03eE22qHHVzPfGtbW','j@imtiazjewel.com', '1', '1', '1', '1');
+
+INSERT INTO role_user (ROLE_ID, USER_ID)
+    VALUES
+    (1, 1) /* zobair-admin */,
+    (2, 2) /* omar-editor */ ,
+    (3, 3) /* imtiaz-operator */ ;

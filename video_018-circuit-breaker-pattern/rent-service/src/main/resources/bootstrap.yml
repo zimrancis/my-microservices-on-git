@@ -1,0 +1,23 @@
+spring:
+  application:
+    name: rent
+server:
+  port: 8191
+eureka:
+  client:
+    register-with-eureka: true
+    fetch-registry: true
+  instance:
+    instance-id: ${spring.application.name}-${random.int}
+    hostname: localhost
+
+#hystrix:
+#  command:
+#    default:
+#      circuitBreaker:
+#        requestVolumeThreshold: 2
+#        errorThresholdPercentage: 50
+#        sleepWindowInMilliseconds: 30000
+#      metrics:
+#        rollingStats:
+#          timeInMilliseconds: 10000
