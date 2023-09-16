@@ -1,6 +1,0 @@
-spring:
-  application:
-    name: profile
-  jpa:
-    hibernate:
-      ddl-auto: update
